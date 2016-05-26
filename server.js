@@ -26,7 +26,7 @@ Db = mongo.Db,
   BSON = mongo.BSONPure;
 
 
-var server = new Server('127.0.0.1', 27017, {auto_reconnect: true});
+var server = new Server(mongodb://aj07:aj07@ds015713.mlab.com:15713/demobus, {auto_reconnect: true});
 
 var db = new Db('wined', server);
 
@@ -50,6 +50,10 @@ db.open(function(err, db) {
 
     }
 
+});
+
+app.get('/',function(req,res){
+  res.send("node server is running successfully")
 });
 
 app.get('/update/:id/:la/:lo',function(req,res){
